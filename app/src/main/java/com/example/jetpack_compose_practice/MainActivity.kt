@@ -61,6 +61,7 @@ fun GreetingPreview() {
             Column() {
             Greeting("Android")
             ShowAge(13)
+                //
         } }
     }
 }
