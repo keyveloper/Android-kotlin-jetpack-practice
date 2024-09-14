@@ -1,16 +1,20 @@
 package com.example.jetpack_compose_practice
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -92,6 +96,17 @@ fun TopHeader(totalPerPerson: Double = 134.0) {
 @Preview
 @Composable
 fun MainContent() {
+    BillForm() {
+        billAmt ->
+        Log.d("AMT", "MainContent: ${billAmt.toInt() * 100}")
+    }
+}
+
+@Composable
+fun BillForm(
+    modifier: Modifier = Modifier,
+    onValChange: (String) -> Unit,
+    ) {
     val totalBillState = remember {
         mutableStateOf("")
     }
@@ -110,7 +125,11 @@ fun MainContent() {
         border = BorderStroke(width = 3.dp, color = Color.LightGray),
         color = Color(color = 0xFFFFFFFF)
     ) {
-        Column {
+        Column(
+            modifier = Modifier.padding(6.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start
+        ) {
             InputField(
                 valueState = totalBillState,
                 labelId = "Enter bill",
@@ -119,11 +138,34 @@ fun MainContent() {
                 onAction = KeyboardActions {
                     if (!validState) return@KeyboardActions
                     // Todo - gnvaluechanged
-
+                    onValChange(totalBillState.value.trim())
                     keyboardController?.hide()
                     // close the keyboard
                 }
             )
+
+            if (validState) {
+                Row(modifier = Modifier.padding(3.dp),
+                    horizontalArrangement = Arrangement.Start)
+                {
+                    Text(
+                        text = "Split",
+                        modifier = Modifier.align(
+                            alignment = Alignment.CenterVertically
+                        )
+                    )
+                    Spacer(modifier = Modifier.width(120.dp))
+                    Row(
+                        modifier = Modifier.padding(horizontal = 3.dp),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        
+
+                    }
+                }
+            } else {
+                Box() {}
+            }
         }
     }
 }
