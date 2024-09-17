@@ -24,25 +24,35 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            JetpackcomposepracticeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            MyApp {
+                MainContent()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun MyApp(content: @Composable () -> Unit) {
+    JetpackcomposepracticeTheme {
+        content()
+    }
 }
+
+@Composable
+fun MainContent() {
+    Text(text = "Hello")
+
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    MyApp {
+        MainContent()
+    }
+}
+
 
 @Composable
 fun ShowAge(age: Int = 12) {
