@@ -59,19 +59,3 @@ fun ShowAge(age: Int = 12) {
     Text(text = age.toString())
 }
 
-@Preview(name = "test name ",showBackground = true)
-@Composable
-fun GreetingPreview() {
-    JetpackcomposepracticeTheme(darkTheme = true) { // there is no layout
-        Surface(
-            modifier = Modifier.fillMaxWidth()
-                .fillMaxHeight()
-                .padding(all = 59.dp),
-            color = MaterialTheme.colorScheme.primary) { // total surface define
-            Column() {
-            Greeting("Android")
-            ShowAge(13)
-                //
-        } }
-    }
-}
