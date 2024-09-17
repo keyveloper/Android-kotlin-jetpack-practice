@@ -37,7 +37,7 @@ fun InputField(
         leadingIcon = { Icon(imageVector = Icons.Rounded.Attachment,
             contentDescription = "MoneyIcon")}, // Icon settings & loaded },
         singleLine = isSingleLine,
-        textStyle = TextStyle(fontSize = 18.sp, color = MaterialTheme.colorScheme.background),
+        textStyle = TextStyle(fontSize = 18.sp, color = MaterialTheme.colorScheme.onBackground),
         modifier = Modifier
             .padding(bottom = 10.dp, start = 10.dp, end = 10.dp),
         enabled = enabled,
