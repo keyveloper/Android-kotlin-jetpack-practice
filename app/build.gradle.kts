@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    // Kapt
+    id("kotlin-kapt")
 }
 
 android {
@@ -68,4 +71,20 @@ dependencies {
 
     // viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
+    // Hilt - Dagger
+    // Hilt - Dagger
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler) // Hilt 컴파일러
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler) // Kapt를 사용하여 Room 컴파일러를 추가
+
+    // Room KTX (Coroutines support)
+    implementation(libs.androidx.room.ktx)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 }
