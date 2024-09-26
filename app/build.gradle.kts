@@ -79,7 +79,7 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler) // Kapt를 사용하여 Room 컴파일러를 추가
+    kapt(libs.androidx.room.compiler)
 
     // Room KTX (Coroutines support)
     implementation(libs.androidx.room.ktx)

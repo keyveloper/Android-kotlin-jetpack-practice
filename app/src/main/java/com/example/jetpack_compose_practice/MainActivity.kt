@@ -16,7 +16,9 @@ import com.example.jetpack_compose_practice.model.Note
 import com.example.jetpack_compose_practice.screen.NoteScreen
 import com.example.jetpack_compose_practice.screen.NoteViewModel
 import com.example.jetpack_compose_practice.ui.theme.JetpackcomposepracticeTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) { // enter point for emulator // not preview
         super.onCreate(savedInstanceState)
