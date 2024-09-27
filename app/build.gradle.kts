@@ -104,5 +104,8 @@ dependencies {
     // Debugging
     debugImplementation(libs.ui.tooling)
 
-    //
+    // Retrofit
+    implementation(libs.retrofit.v2110)
+    implementation(libs.converter.gson)
+
 }
